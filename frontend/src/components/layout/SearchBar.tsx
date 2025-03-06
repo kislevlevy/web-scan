@@ -59,21 +59,23 @@ export default function SearchBar() {
       className="flex justify-center items-center gap-x-1"
       onSubmit={handleSubmit}
     >
-      <Button
-        type="button"
-        disabled={isLoading}
-        className="fixed cursor-pointer h-12 dark bg-transparent hover:brightness-75 hover:bg-transparent -translate-x-56"
-        onClick={async () => setUrl(await navigator.clipboard.readText())}
-      >
-        <Clipboard color="white" height={23} />
-      </Button>
-      <Input
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
-        size={50}
-        className="text-white h-12 pl-10"
-        disabled={isLoading}
-      />
+      <div className="flex justify-between items-center w-fit">
+        <Button
+          type="button"
+          disabled={isLoading}
+          className="absalut cursor-pointer h-12 dark bg-transparent hover:brightness-75 hover:bg-transparent translate-x-10"
+          onClick={async () => setUrl(await navigator.clipboard.readText())}
+        >
+          <Clipboard color="white" height={23} />
+        </Button>
+        <Input
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          size={50}
+          className="text-white h-12 pl-10"
+          disabled={isLoading}
+        />
+      </div>
       <Button
         type="submit"
         variant="secondary"
