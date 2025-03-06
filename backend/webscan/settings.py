@@ -1,10 +1,14 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from django.core.management.commands.runserver import Command as runserver
 
 
 # Load env veriables:
 load_dotenv()
+
+# Change port to .env port
+runserver.default_port = os.getenv('PORT')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
