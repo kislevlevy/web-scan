@@ -12,14 +12,14 @@ def scan_website(request):
         return JsonResponse({"error": "No domain provided"}, status=400)
 
     try:
-        # run the docker container as a separte process
+        # run the docker container as a separate process
         result = subprocess.run(
             [
                 "docker",
                 "run",
                 "--network",
                 "host",
-                "projectdiscovery/httpx",  # selct httpx package
+                "projectdiscovery/httpx",  # select httpx package
                 "-u",  # input target host to probe
                 domain,  # specifies the target domain
                 "-fr",  # follow http redirects
